@@ -3,7 +3,7 @@ Notes keeping Android application, written in Kotlin
 
 ## Libraries and Services Used
 * **Room** - local database functions
-* **Jetpack Navigation Components** - 
+* **Jetpack Navigation Components** - navigation functionality between elements of the application
 * **Material Design Components** - standardised UI design
 
 ## Architectural Approach
@@ -11,7 +11,7 @@ Notes keeping Android application, written in Kotlin
 * Data-Domain-Presentation package breakdown
 
 ## UI Elements
-* Navigation components graph to support navigation between fragments and activities (including with arguments - using safeargs)
+* Navigation components graph to support navigation between fragments and activities (including with arguments)
 * Shared view models to support passing back of data/notifications to previous destinations
 * RecyclerView using LinearLayoutManager and StaggeredGridLayoutManager
 * ItemTouchHelper for swipe to delete callback for RecyclerView
