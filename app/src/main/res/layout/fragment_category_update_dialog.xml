@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextCategoryName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="@string/input_hint_category_name"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:importantForAutofill="no" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupCategoryColour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:checkedChip="@id/chipGrey"
+            app:chipSpacingHorizontal="16dp"
+            app:chipSpacingVertical="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGrey"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryGrey"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBrown"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryBrown"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOrange"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryOrange"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipYellow"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryYellow"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGreen"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryGreen"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTeal"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryTeal"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBlue"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryBlue"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipIndigo"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryIndigo"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPurple"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryPurple"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRed"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:checkedIconVisible="true"
+                app:chipBackgroundColor="@color/categoryRed"
+                app:chipCornerRadius="16dp"
+                app:chipStartPadding="12dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

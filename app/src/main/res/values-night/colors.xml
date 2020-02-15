@@ -1,0 +1,24 @@
+<resources>
+    <color name="colorPrimary">#ff212121</color>
+    <color name="colorPrimaryDark">#ff000000</color>
+    <color name="colorPrimaryLight">#ff414141</color>
+    <color name="colorAccent">#ff82b1ff</color>
+    <color name="colorActionBar">#ff414141</color>
+
+    <!--<color name="colorIconBackground">#ffa5a5a5</color>
+    <color name="colorIconForeground">#ff212121</color>-->
+    <color name="colorIconBackground">@null</color>
+    <color name="colorIconForeground">#ffffffff</color>
+    <!--<color name="colorIconBackgroundInverted">#ff212121</color>
+    <color name="colorIconForegroundInverted">#ffa5a5a5</color>-->
+    <color name="colorIconBackgroundInverted">@null</color>
+    <color name="colorIconForegroundInverted">#ffffffff</color>
+
+    <color name="colourDividerLight">#ff111111</color>
+    <color name="colourTextActionBar">#ffa5a5a5</color>
+    <color name="colourTextDark">#ff414141</color>
+
+    <color name="colourAppBarOverlayBorder">#bba5a5a5</color>
+    <color name="colourAppBarOverlay">#22a5a5a5</color>
+    <color name="colourAppBarOverlayText">#A5A5A5</color>
+</resources>

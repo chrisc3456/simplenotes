@@ -1,0 +1,4 @@
+<resources>
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" parent="Theme.MaterialComponents.NoActionBar.Bridge" />
+
+</resources>

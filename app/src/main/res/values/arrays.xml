@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="settings_notes_display_values">
+        <item>List</item>
+        <item>Grid</item>
+    </string-array>
+
+    <string-array name="settings_display_mode">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+</resources>

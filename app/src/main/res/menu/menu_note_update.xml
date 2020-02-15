@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuCategorySelect"
+        android:enabled="true"
+        android:icon="@drawable/ic_round_folder"
+        android:title="@string/menu_category_select"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+</menu>

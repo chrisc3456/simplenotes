@@ -1,0 +1,35 @@
+<resources>
+    <color name="colorPrimary">#FCFCFC</color>
+    <color name="colorPrimaryDark">#ffa5a5a5</color>
+    <color name="colorPrimaryLight">#ffffffff</color>
+    <color name="colorAccent">#82B1FF</color>
+    <color name="colorActionBar">#ffc5c5c5</color>
+
+    <color name="colorIconBackground">#ffa5a5a5</color>
+    <color name="colorIconForeground">#fffcfcfc</color>
+    <color name="colorIconBackgroundInverted">#fffcfcfc</color>
+    <color name="colorIconForegroundInverted">#ffa5a5a5</color>
+
+    <color name="colourDividerLight">#E0E0E0</color>
+    <color name="colourTextActionBar">#616161</color>
+    <color name="colourTextDark">#616161</color>
+
+    <color name="colourAppBarOverlayBorder">#33000000</color>
+    <color name="colourAppBarOverlay">#11000000</color>
+    <color name="colourAppBarOverlayText">#ff616161</color>
+    <color name="colourDarkOverlay">#11000000</color>
+    <color name="colourDarkOverlayBorder">#22000000</color>
+
+    <!-- Category colours - Material 100 -->
+    <color name="categoryRed">#FFCDD2</color>
+    <color name="categoryPurple">#E1BEE7</color>
+    <color name="categoryIndigo">#C5CAE9</color>
+    <color name="categoryBlue">#B3E5FC</color>
+    <color name="categoryTeal">#B2DFDB</color>
+    <color name="categoryGreen">#DCEDC8</color>
+    <color name="categoryYellow">#FFF9C4</color>
+    <color name="categoryOrange">#FFE0B2</color>
+    <color name="categoryBrown">#D7CCC8</color>
+    <color name="categoryGrey">#CFD8DC</color>
+    <color name="categoryDefault">@color/categoryGrey</color>
+</resources>

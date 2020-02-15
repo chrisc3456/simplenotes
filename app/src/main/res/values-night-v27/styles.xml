@@ -1,0 +1,5 @@
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>
