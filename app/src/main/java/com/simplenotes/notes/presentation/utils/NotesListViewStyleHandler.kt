@@ -10,10 +10,10 @@ object NotesListViewStyleHandler {
      * Provide an enum representation of the view style preference
      */
     fun getNotesListViewStyle(context: Context): NotesListViewStyle =
-        if (getNotesViewStylePreference(context) == "List") {
-            NotesListViewStyle.VIEW_STYLE_LIST
-        } else {
-            NotesListViewStyle.VIEW_STYLE_GRID
+        when (getNotesViewStylePreference(context)) {
+            "Grid" -> NotesListViewStyle.VIEW_STYLE_GRID
+            "List" -> NotesListViewStyle.VIEW_STYLE_LIST
+            else -> NotesListViewStyle.VIEW_STYLE_LIST
         }
 
     /**
