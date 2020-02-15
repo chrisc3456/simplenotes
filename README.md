@@ -22,3 +22,4 @@ Notes keeping Android application, written in Kotlin
 
 ## Other Application Elements
 * Preferences dialog for storing/retrieving user settings
+* LiveData for observing data query results from view models
