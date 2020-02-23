@@ -1,6 +1,8 @@
 package com.simplenotes.notes.presentation.adapters
 
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simplenotes.notes.R
 import com.simplenotes.notes.domain.models.Category
@@ -49,15 +51,24 @@ class CategoriesListAdapter(private val clickListener: (Category) -> Unit, priva
         fun bindItem(category: Category, clickListener: (Category) -> Unit, longClickListener: (View, Category) -> Unit) {
             itemView.apply {
 
-                setOnLongClickListener { view ->
-                    longClickListener(view, category)
-                    return@setOnLongClickListener true      // Prevents other click handlers from being executed
+                textViewCategoryName.text = category.name
+
+                // Hide the colour icon for an empty 'none' category
+                if (category.id == 0) {
+                    imageViewCategoryColour.visibility = View.INVISIBLE
+
+                // Otherwise set the appropriate colour and add a long click listener which can be used to trigger edit options
+                } else {
+                    imageViewCategoryColour.visibility = View.VISIBLE
+                    imageViewCategoryColour.setColorFilter(category.colour)
+
+                    setOnLongClickListener { view ->
+                        longClickListener(view, category)
+                        return@setOnLongClickListener true      // Prevents other click handlers from being executed
+                    }
                 }
 
                 setOnClickListener { clickListener(category) }
-
-                textViewCategoryName.text = category.name
-                imageViewCategoryColour.setColorFilter(category.colour)
             }
         }
     }

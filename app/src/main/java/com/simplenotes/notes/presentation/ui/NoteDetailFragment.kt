@@ -1,10 +1,10 @@
 package com.simplenotes.notes.presentation.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.simplenotes.notes.R
 import com.simplenotes.notes.domain.models.Category
 import com.simplenotes.notes.domain.models.Note
@@ -31,7 +31,7 @@ class NoteDetailFragment : Fragment() {
      */
     fun displayCategory(category: Category?) {
         val parentFrag = parentFragment as NoteUpdateFragment
-        if (category == null) {
+        if (category == null || category.id == 0) {
             parentFrag.apply {
                 dividerNoteColour.visibility = View.GONE
                 textViewSelectedCategory.visibility = View.GONE

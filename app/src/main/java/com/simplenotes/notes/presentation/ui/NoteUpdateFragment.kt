@@ -158,7 +158,11 @@ class NoteUpdateFragment : Fragment() {
      * Update the local category id with that which has been selected for linking the note
      */
     private fun onCategorySelected(category: Category) {
-        categoryId = category.id
+        categoryId = if (category.id == 0) {
+            null
+        } else {
+            category.id
+        }
         val detailFragment = childFragmentManager.findFragmentById(R.id.fragmentNoteDetail) as NoteDetailFragment
         detailFragment.displayCategory(category)
     }

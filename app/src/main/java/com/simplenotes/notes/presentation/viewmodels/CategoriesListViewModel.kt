@@ -8,7 +8,7 @@ import com.simplenotes.notes.domain.models.Category
 
 class CategoriesListViewModel(application: Application): AndroidViewModel(application) {
 
-    val categories = MutableLiveData<List<Category>>()
+    val categories = MutableLiveData<MutableList<Category>>().apply { value = mutableListOf() }
     private val dataSource = CategoriesListDataSourceFactory.createDataSource(application)
 
     init {
@@ -20,7 +20,8 @@ class CategoriesListViewModel(application: Application): AndroidViewModel(applic
      */
     fun refreshCategories() {
         dataSource.refreshCategories()
-        categories.value = dataSource.getCategories()
+        categories.value!!.add(Category(0, "None", 0))
+        categories.value!!.addAll(dataSource.getCategories())
     }
 
     /**
