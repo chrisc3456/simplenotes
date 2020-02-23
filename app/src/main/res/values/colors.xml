@@ -3,6 +3,8 @@
     <color name="colorPrimaryDark">#ffa5a5a5</color>
     <color name="colorPrimaryLight">#ffffffff</color>
     <color name="colorAccent">#82B1FF</color>
+    <color name="colorAccentDark">#ff3949ab</color>
+    <color name="colorAccentLight">#ff4fc3f7</color>
     <color name="colorActionBar">#ffc5c5c5</color>
 
     <color name="colorIconBackground">#ffa5a5a5</color>

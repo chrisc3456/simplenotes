@@ -34,16 +34,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNew"
-        style="@style/Widget.MaterialComponents.FloatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_round_plus"
+        app:srcCompat="@drawable/ic_add_gradient"
         app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="36dp" />
+        app:maxImageSize="56dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

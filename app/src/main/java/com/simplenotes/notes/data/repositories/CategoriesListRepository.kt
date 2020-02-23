@@ -1,11 +1,11 @@
 package com.simplenotes.notes.data.repositories
 
-import com.simplenotes.notes.domain.repositories.CategoriesListDataSource
 import com.simplenotes.notes.data.local.CategoryEntity
 import com.simplenotes.notes.data.local.CategoryEntityDao
 import com.simplenotes.notes.data.local.NoteDatabase
 import com.simplenotes.notes.data.local.asDomainModel
 import com.simplenotes.notes.domain.models.Category
+import com.simplenotes.notes.domain.repositories.CategoriesListDataSource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 
@@ -48,9 +48,7 @@ class CategoriesListRepository(private val context: DataSourceContext): Categori
     override fun deleteCategory(id: Int) {
         runBlocking(Dispatchers.IO) {
             val existingCategory = categoryDao.getCategoryFromId(id)
-            if (existingCategory != null) {
-                categoryDao.deleteCategory(existingCategory)
-            }
+            categoryDao.deleteCategory(existingCategory)
         }
     }
 }
