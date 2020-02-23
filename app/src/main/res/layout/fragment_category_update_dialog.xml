@@ -46,6 +46,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryGrey"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -56,6 +58,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryBrown"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -66,6 +70,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryOrange"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -76,6 +82,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryYellow"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -86,6 +94,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryGreen"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -96,6 +106,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryTeal"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -106,6 +118,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryBlue"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -116,6 +130,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryIndigo"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -126,6 +142,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryPurple"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
             <com.google.android.material.chip.Chip
@@ -136,6 +154,8 @@
                 app:checkedIconVisible="true"
                 app:chipBackgroundColor="@color/categoryRed"
                 app:chipCornerRadius="16dp"
+                app:chipMinHeight="50dp"
+                app:chipMinTouchTargetSize="0dp"
                 app:chipStartPadding="12dp" />
 
         </com.google.android.material.chip.ChipGroup>
