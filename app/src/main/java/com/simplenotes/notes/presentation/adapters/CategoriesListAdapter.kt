@@ -8,7 +8,12 @@ import com.simplenotes.notes.R
 import com.simplenotes.notes.domain.models.Category
 import kotlinx.android.synthetic.main.item_category.view.*
 
-class CategoriesListAdapter(private val clickListener: (Category) -> Unit, private val longClickListener: (View, Category) -> Unit): RecyclerView.Adapter<CategoriesListAdapter.CategoryViewHolder>() {
+const val VIEW_TYPE_DEFAULT = 0
+const val VIEW_TYPE_SHOW_ALL = 1
+const val VIEW_TYPE_NONE = 2
+const val VIEW_TYPE_CREATE = 3
+
+class CategoriesListAdapter(private val extraEntryAsShowAll: Boolean, private val clickListener: (Category, Boolean) -> Unit, private val longClickListener: (View, Category) -> Unit): RecyclerView.Adapter<CategoriesListAdapter.CategoryViewHolder>() {
 
     private var categories: MutableList<Category> = mutableListOf()
 
@@ -17,7 +22,29 @@ class CategoriesListAdapter(private val clickListener: (Category) -> Unit, priva
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return CategoryViewHolder(layoutInflater.inflate(R.layout.item_category, parent, false))
+        val layoutType = when (viewType) {
+            VIEW_TYPE_NONE -> R.layout.item_category_none
+            VIEW_TYPE_SHOW_ALL -> R.layout.item_category_show_all
+            VIEW_TYPE_CREATE -> R.layout.item_category_create
+            else -> R.layout.item_category
+        }
+
+        return CategoryViewHolder(layoutInflater.inflate(layoutType, parent, false))
+    }
+
+    /**
+     * Identify the type of view to inflate
+     */
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0 && extraEntryAsShowAll) {
+            VIEW_TYPE_SHOW_ALL
+        } else {
+            when (position) {
+                0 -> VIEW_TYPE_NONE
+                categories.size - 1 -> VIEW_TYPE_CREATE
+                else -> VIEW_TYPE_DEFAULT
+            }
+        }
     }
 
     /**
@@ -48,27 +75,20 @@ class CategoriesListAdapter(private val clickListener: (Category) -> Unit, priva
      * ViewHolder subclass providing click binding functionality for the attached recycler view
      */
     inner class CategoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bindItem(category: Category, clickListener: (Category) -> Unit, longClickListener: (View, Category) -> Unit) {
+        fun bindItem(category: Category, clickListener: (Category, Boolean) -> Unit, longClickListener: (View, Category) -> Unit) {
             itemView.apply {
 
                 textViewCategoryName.text = category.name
 
-                // Hide the colour icon for an empty 'none' category
-                if (category.id == 0) {
-                    imageViewCategoryColour.visibility = View.INVISIBLE
-
-                // Otherwise set the appropriate colour and add a long click listener which can be used to trigger edit options
-                } else {
-                    imageViewCategoryColour.visibility = View.VISIBLE
+                if (category.id != 0) {
                     imageViewCategoryColour.setColorFilter(category.colour)
-
                     setOnLongClickListener { view ->
                         longClickListener(view, category)
                         return@setOnLongClickListener true      // Prevents other click handlers from being executed
                     }
                 }
 
-                setOnClickListener { clickListener(category) }
+                setOnClickListener { clickListener(category, category == categories.last()) }
             }
         }
     }
