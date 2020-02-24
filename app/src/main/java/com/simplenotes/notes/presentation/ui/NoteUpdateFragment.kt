@@ -148,10 +148,7 @@ class NoteUpdateFragment : Fragment() {
      * Navigate to another fragment to allow selection of the required category
      */
     private fun getCategory() {
-        // Using string for the argument as navigation components doesn't support nullable integers
-        val action = NoteUpdateFragmentDirections.actionNoteUpdateFragmentToCategoriesListFragment()
-        action.categoryId = categoryId.toString()
-        findNavController().navigate(action)
+        findNavController().navigate(NoteUpdateFragmentDirections.actionNoteUpdateFragmentToCategoriesListFragment())
     }
 
     /**

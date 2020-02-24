@@ -37,10 +37,9 @@
         android:name="com.simplenotes.notes.presentation.ui.CategoriesListFragment"
         tools:layout="@layout/fragment_categories_list">
         <argument
-            android:name="categoryId"
-            app:argType="string"
-            android:defaultValue="@null"
-            app:nullable="true" />
+            android:name="extraEntryAsShowAll"
+            app:argType="boolean"
+            android:defaultValue="false" />
         <action
             android:id="@+id/action_categoriesListFragment_to_categoryUpdateDialogFragment"
             app:destination="@id/categoryUpdateDialogFragment" />

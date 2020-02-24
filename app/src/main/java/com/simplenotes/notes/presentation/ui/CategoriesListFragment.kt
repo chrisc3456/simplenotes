@@ -1,11 +1,14 @@
 package com.simplenotes.notes.presentation.ui
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -23,20 +26,25 @@ import com.simplenotes.notes.presentation.viewmodels.CategoriesListViewModel
 import com.simplenotes.notes.presentation.viewmodels.SharedCategoryChangedViewModel
 import com.simplenotes.notes.presentation.viewmodels.SharedCategorySelectedViewModel
 import kotlinx.android.synthetic.main.fragment_categories_list.*
-import kotlinx.android.synthetic.main.item_category_create.*
 
 class CategoriesListFragment : Fragment(), OnActionItemClickListener {
 
+    private var extraEntryAsShowAll = false
     private var selectedCategoryId: Int? = null
     private val actionModeCallback = DefaultActionModeCallback(this)
     private val selectedNotifyViewModel: SharedCategorySelectedViewModel by navGraphViewModels(R.id.nav_main)
     private val categoriesChangedViewModel: SharedCategoryChangedViewModel by navGraphViewModels(R.id.nav_main)
     private lateinit var listViewModel: CategoriesListViewModel
-    private val categoriesAdapter = CategoriesListAdapter( { category: Category -> onClickedCategory(category) },
-        { view: View, category: Category -> onLongClickedCategory(view, category) })
+    private lateinit var categoriesAdapter: CategoriesListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_categories_list, container, false)
+
+        // Initialise the adapter, pulling the display mode for the extra entry from the navigation arguments
+        extraEntryAsShowAll = CategoriesListFragmentArgs.fromBundle(arguments!!).extraEntryAsShowAll
+        categoriesAdapter = CategoriesListAdapter(extraEntryAsShowAll, { category: Category, isCreateEntry: Boolean -> onClickedCategory(category, isCreateEntry) },
+            { v: View, category: Category -> onLongClickedCategory(v, category) })
+
         setupViewModels()
         addObservers()
         return view
@@ -46,14 +54,13 @@ class CategoriesListFragment : Fragment(), OnActionItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         setupRecycler()
         setupActionBar()
-        constraintCreateCategory.setOnClickListener { newCategory() }
     }
 
     /**
      * Create the view models
      */
     private fun setupViewModels() {
-        listViewModel = ViewModelProvider(this, CategoriesListViewModelFactory(requireActivity().application)).get(CategoriesListViewModel::class.java)
+        listViewModel = ViewModelProvider(this, CategoriesListViewModelFactory(requireActivity().application, extraEntryAsShowAll)).get(CategoriesListViewModel::class.java)
     }
 
     /**
@@ -110,13 +117,6 @@ class CategoriesListFragment : Fragment(), OnActionItemClickListener {
     }
 
     /**
-     * Show custom dialog for creating a category
-     */
-    private fun newCategory() {
-        findNavController().navigate(CategoriesListFragmentDirections.actionCategoriesListFragmentToCategoryUpdateDialogFragment())
-    }
-
-    /**
      * Show custom dialog for updating a category
      */
     private fun editCategory() {
@@ -151,12 +151,17 @@ class CategoriesListFragment : Fragment(), OnActionItemClickListener {
 
     /**
      * When a category is clicked, close any open action mode, update the shared view model and go back to previous navigation destination
+     * If the additional create entry is clicked then launch a dialog to create a new category
      */
-    private fun onClickedCategory(category: Category) {
-        selectedCategoryId = category.id
-        actionModeCallback.finishActionMode()
-        selectedNotifyViewModel.categorySelected(category)
-        findNavController().popBackStack()
+    private fun onClickedCategory(category: Category, isCreateEntry: Boolean) {
+        if (isCreateEntry) {
+            findNavController().navigate(CategoriesListFragmentDirections.actionCategoriesListFragmentToCategoryUpdateDialogFragment())
+        } else {
+            selectedCategoryId = category.id
+            actionModeCallback.finishActionMode()
+            selectedNotifyViewModel.categorySelected(category)
+            findNavController().popBackStack()
+        }
     }
 
     /**

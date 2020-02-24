@@ -15,12 +15,14 @@
     <string name="title_category_select">Select category</string>
     <string name="title_settings">Settings</string>
 
+    <string name="item_category_show_all">Show all</string>
+    <string name="item_category_create">Create new category</string>
+    <string name="item_category_none">None</string>
+
     <string name="dialog_title_category_new">New category</string>
     <string name="dialog_title_category_update">Update category</string>
     <string name="dialog_button_save">Save</string>
     <string name="dialog_button_cancel">Cancel</string>
-
-    <string name="item_category_create">Create new category</string>
 
     <!-- Preference titles -->
     <string name="settings_header_display">Display Options</string>
