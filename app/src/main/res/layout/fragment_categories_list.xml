@@ -31,12 +31,4 @@
         app:layout_constraintTop_toBottomOf="@+id/appbarCategoriesList"
         tools:listitem="@layout/item_category" />
 
-    <include
-        layout="@layout/item_category_create"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerCategories" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
