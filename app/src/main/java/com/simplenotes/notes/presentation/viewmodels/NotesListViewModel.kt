@@ -10,6 +10,7 @@ class NotesListViewModel(application: Application): AndroidViewModel(application
 
     val notes = MutableLiveData<List<Note>>()
     private val dataSource = NotesListDataSourceFactory.createDataSource(application)
+    private var lastCategoryId: Int? = null
 
     init {
         refreshNotes()
@@ -19,8 +20,16 @@ class NotesListViewModel(application: Application): AndroidViewModel(application
      * Refresh the notes from the data source
      */
     fun refreshNotes() {
-        dataSource.refreshNotes()
+        dataSource.refreshNotes(lastCategoryId)
         notes.value = dataSource.getNotes()
+    }
+
+    /**
+     * Refresh the notes from the data source for a particular category
+     */
+    fun refreshNotesForCategory(categoryId: Int?) {
+        lastCategoryId = categoryId
+        refreshNotes()
     }
 
     /**

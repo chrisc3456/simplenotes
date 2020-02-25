@@ -12,7 +12,7 @@ interface NotesListDataSource {
     /**
      * Refresh notes data from the relevant source
      */
-    fun refreshNotes()
+    fun refreshNotes(categoryId: Int?)
 
     /**
      * Delete the specified note

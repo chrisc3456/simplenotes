@@ -34,17 +34,21 @@ class NotesListRepository(private val context: DataSourceContext): NotesListData
     /**
      * Refresh notes data from the relevant source
      */
-    override fun refreshNotes() {
-        refreshNotesFromLocalDb()
+    override fun refreshNotes(categoryId: Int?) {
+        refreshNotesFromLocalDb(categoryId)
         refreshCategoryEntitiesFromLocalDb()
     }
 
     /**
      * Refresh notes data from the local db. Note - this runs on the IO thread
      */
-    private fun refreshNotesFromLocalDb() {
+    private fun refreshNotesFromLocalDb(categoryId: Int?) {
         runBlocking(Dispatchers.IO) {
-            notes = noteDao.getAllNotes()
+            notes = if (categoryId == null) {
+                noteDao.getAllNotes()
+            } else {
+                noteDao.getNotesForCategory(categoryId)
+            }
         }
     }
 

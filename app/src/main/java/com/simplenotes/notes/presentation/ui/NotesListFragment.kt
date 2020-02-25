@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.Fragment
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,18 +13,21 @@ import androidx.navigation.navGraphViewModels
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.recyclerview.widget.*
 import com.simplenotes.notes.R
+import com.simplenotes.notes.domain.models.Category
 import com.simplenotes.notes.presentation.adapters.NotesListAdapter
 import com.simplenotes.notes.presentation.callbacks.NoteSwipeToDeleteBasicCallback
 import com.simplenotes.notes.presentation.factories.NotesListViewModelFactory
 import com.simplenotes.notes.presentation.utils.NotesListViewStyle
 import com.simplenotes.notes.presentation.utils.NotesListViewStyleHandler
 import com.simplenotes.notes.presentation.viewmodels.NotesListViewModel
+import com.simplenotes.notes.presentation.viewmodels.SharedCategorySelectedViewModel
 import com.simplenotes.notes.presentation.viewmodels.SharedNotesChangedViewModel
 import kotlinx.android.synthetic.main.fragment_notes_list.*
 
 class NotesListFragment : Fragment() {
 
     private val changeNotifyViewModel: SharedNotesChangedViewModel by navGraphViewModels(R.id.nav_main)
+    private val selectCategoryViewModel: SharedCategorySelectedViewModel by navGraphViewModels(R.id.nav_main)
     private lateinit var listViewModel: NotesListViewModel
     private val notesAdapter = NotesListAdapter { noteId: Int -> onClickedNote(noteId) }
 
@@ -64,6 +67,7 @@ class NotesListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menuNotesSettings -> openSettings()
+            R.id.menuNotesCategory -> openCategorySelect()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -77,7 +81,8 @@ class NotesListFragment : Fragment() {
         val hostActivity = requireActivity() as AppCompatActivity
         hostActivity.setSupportActionBar(toolbarNotesList)
         hostActivity.setupActionBarWithNavController(findNavController())
-        hostActivity.supportActionBar?.setDisplayShowTitleEnabled(false)
+        hostActivity.supportActionBar?.setDisplayShowTitleEnabled(true)
+        hostActivity.supportActionBar?.title = resources.getString(R.string.title_all_notes)
     }
 
     /**
@@ -93,6 +98,7 @@ class NotesListFragment : Fragment() {
     private fun addObservers() {
         listViewModel.notes.observe(viewLifecycleOwner, Observer { results -> notesAdapter.setNotes(results) })
         changeNotifyViewModel.noteChanged.observe(viewLifecycleOwner, Observer { changed -> onNotesChanged(changed) })
+        selectCategoryViewModel.categorySelected.observe(viewLifecycleOwner, Observer { selectedCategory -> onSelectedCategory(selectedCategory) })
     }
 
     /**
@@ -154,9 +160,32 @@ class NotesListFragment : Fragment() {
     }
 
     /**
+     * Update the toolbar title and filter the search results when a category is selected
+     */
+    private fun onSelectedCategory(selectedCategory: Category) {
+        val hostActivity = requireActivity() as AppCompatActivity
+        if (selectedCategory.id == 0) {
+            hostActivity.supportActionBar?.title = resources.getString(R.string.title_all_notes)
+            listViewModel.refreshNotesForCategory(null)
+        } else {
+            hostActivity.supportActionBar?.title = selectedCategory.name
+            listViewModel.refreshNotesForCategory(selectedCategory.id)
+        }
+    }
+
+    /**
      * Navigate to the settings fragment
      */
     private fun openSettings() {
         findNavController().navigate(NotesListFragmentDirections.actionNotesListFragmentToSettingsFragment())
+    }
+
+    /**
+     * Navigate to the category select fragment
+     */
+    private fun openCategorySelect() {
+        val action = NotesListFragmentDirections.actionNotesListFragmentToCategoriesListFragment()
+        action.extraEntryAsShowAll = true
+        findNavController().navigate(action)
     }
 }

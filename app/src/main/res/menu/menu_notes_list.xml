@@ -9,6 +9,11 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
     <item
+        android:id="@+id/menuNotesCategory"
+        android:icon="@drawable/ic_round_folder"
+        android:title="@string/menu_notes_category"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/menuNotesSettings"
         android:icon="@drawable/ic_round_settings"
         android:title="@string/menu_notes_settings"

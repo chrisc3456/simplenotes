@@ -10,7 +10,9 @@
         tools:layout="@layout/fragment_notes_list">
         <action
             android:id="@+id/action_notesListFragment_to_noteUpdateFragment"
-            app:destination="@id/noteUpdateFragment" />
+            app:destination="@id/noteUpdateFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_notesListFragment_to_taskUpdateFragment"
             app:destination="@id/taskUpdateFragment" />
@@ -19,7 +21,9 @@
             app:destination="@id/categoriesListFragment" />
         <action
             android:id="@+id/action_notesListFragment_to_settingsFragment"
-            app:destination="@+id/settingsFragment" />
+            app:destination="@+id/settingsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left" />
     </fragment>
     <fragment
         android:id="@+id/noteUpdateFragment"
