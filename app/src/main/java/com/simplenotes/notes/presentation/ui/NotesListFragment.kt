@@ -30,6 +30,7 @@ class NotesListFragment : Fragment() {
     private val selectCategoryViewModel: SharedCategorySelectedViewModel by navGraphViewModels(R.id.nav_main)
     private lateinit var listViewModel: NotesListViewModel
     private val notesAdapter = NotesListAdapter { noteId: Int -> onClickedNote(noteId) }
+    private var isFilteringCategory = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_notes_list, container, false)
@@ -163,13 +164,16 @@ class NotesListFragment : Fragment() {
      * Update the toolbar title and filter the search results when a category is selected
      */
     private fun onSelectedCategory(selectedCategory: Category) {
-        val hostActivity = requireActivity() as AppCompatActivity
-        if (selectedCategory.id == 0) {
-            hostActivity.supportActionBar?.title = resources.getString(R.string.title_all_notes)
-            listViewModel.refreshNotesForCategory(null)
-        } else {
-            hostActivity.supportActionBar?.title = selectedCategory.name
-            listViewModel.refreshNotesForCategory(selectedCategory.id)
+        if (isFilteringCategory) {
+            isFilteringCategory = false
+            val hostActivity = requireActivity() as AppCompatActivity
+            if (selectedCategory.id == 0) {
+                hostActivity.supportActionBar?.title = resources.getString(R.string.title_all_notes)
+                listViewModel.refreshNotesForCategory(null)
+            } else {
+                hostActivity.supportActionBar?.title = selectedCategory.name
+                listViewModel.refreshNotesForCategory(selectedCategory.id)
+            }
         }
     }
 
@@ -184,6 +188,7 @@ class NotesListFragment : Fragment() {
      * Navigate to the category select fragment
      */
     private fun openCategorySelect() {
+        isFilteringCategory = true
         val action = NotesListFragmentDirections.actionNotesListFragmentToCategoriesListFragment()
         action.extraEntryAsShowAll = true
         findNavController().navigate(action)

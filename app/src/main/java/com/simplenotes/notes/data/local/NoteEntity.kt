@@ -22,8 +22,6 @@ data class NoteEntity(
     val categoryId: Int?
 )
 
-//TODO: Move mappers to separate classes/objects?
-
 /**
  * Mapper to convert from database model to domain model
  */

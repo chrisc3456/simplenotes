@@ -160,6 +160,7 @@ class CategoriesListFragment : Fragment(), OnActionItemClickListener {
             selectedCategoryId = category.id
             actionModeCallback.finishActionMode()
             selectedNotifyViewModel.categorySelected(category)
+
             findNavController().popBackStack()
         }
     }
