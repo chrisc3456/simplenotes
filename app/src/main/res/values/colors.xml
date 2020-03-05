@@ -9,8 +9,8 @@
     <color name="colorNavBar">#fffcfcfc</color>
     <color name="colorNavDivider">#ffe0e0e0</color>
 
-    <color name="colorIconBackground">#ffa5a5a5</color>
-    <color name="colorIconForeground">#fffcfcfc</color>
+    <color name="colorIconBackground">@null</color>
+    <color name="colorIconForeground">@color/colourTextActionBar</color>
     <color name="colorIconBackgroundInverted">#fffcfcfc</color>
     <color name="colorIconForegroundInverted">#ffa5a5a5</color>
 

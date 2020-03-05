@@ -17,7 +17,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarNotesList"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/colourTextActionBar" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
