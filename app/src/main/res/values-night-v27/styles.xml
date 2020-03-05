@@ -1,5 +1,8 @@
 <resources>
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Repeating here even though already declared in main styles.xml file otherwise the custom layout gets lost on APK v28+ -->
+        <item name="preferenceTheme">@style/AppTheme.PreferenceThemeOverlay</item>
     </style>
 </resources>

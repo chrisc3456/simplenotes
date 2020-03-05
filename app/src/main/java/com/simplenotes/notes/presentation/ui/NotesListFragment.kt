@@ -81,8 +81,8 @@ class NotesListFragment : Fragment() {
         val hostActivity = requireActivity() as AppCompatActivity
         hostActivity.setSupportActionBar(toolbarNotesList)
         hostActivity.setupActionBarWithNavController(findNavController())
-        hostActivity.supportActionBar?.setDisplayShowTitleEnabled(true)
         hostActivity.supportActionBar?.title = resources.getString(R.string.title_all_notes)
+        hostActivity.supportActionBar?.setDisplayShowTitleEnabled(true)
     }
 
     /**

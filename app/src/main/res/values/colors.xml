@@ -1,18 +1,20 @@
 <resources>
-    <color name="colorPrimary">#FCFCFC</color>
+    <color name="colorPrimary">#fffcfcfc</color>
     <color name="colorPrimaryDark">#ffa5a5a5</color>
     <color name="colorPrimaryLight">#ffffffff</color>
-    <color name="colorAccent">#82B1FF</color>
+    <color name="colorAccent">#ff82b1ff</color>
     <color name="colorAccentDark">#ff3949ab</color>
     <color name="colorAccentLight">#ff4fc3f7</color>
     <color name="colorActionBar">#ffc5c5c5</color>
+    <color name="colorNavBar">#fffcfcfc</color>
+    <color name="colorNavDivider">#ffe0e0e0</color>
 
     <color name="colorIconBackground">#ffa5a5a5</color>
     <color name="colorIconForeground">#fffcfcfc</color>
     <color name="colorIconBackgroundInverted">#fffcfcfc</color>
     <color name="colorIconForegroundInverted">#ffa5a5a5</color>
 
-    <color name="colourDividerLight">#E0E0E0</color>
+    <color name="colourDividerLight">#ffe0e0e0</color>
     <color name="colourTextActionBar">#616161</color>
     <color name="colourTextDark">#616161</color>
 

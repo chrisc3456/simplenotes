@@ -14,7 +14,7 @@
     </style>
 
     <!-- Override the theme for the preferences with a custom layout -->
-    <style name="AppTheme.PreferenceThemeOverlay" parent="PreferenceThemeOverlay">
+    <style name="AppTheme.PreferenceThemeOverlay" parent="@style/PreferenceThemeOverlay">
         <item name="android:layout">@layout/fragment_settings</item>
     </style>
 

@@ -41,6 +41,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val actionBar = hostActivity.supportActionBar
         actionBar?.title = resources.getString(R.string.title_settings)
         actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayShowTitleEnabled(true)
     }
 
     /**
